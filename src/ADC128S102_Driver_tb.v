@@ -21,67 +21,50 @@ module ADC128S102_Driver_tb;
     end
 
     initial begin
-        rst_n=0;
-        Addr=3'b101;
+        rst_n   = 0;
+        Conv_go = 0;
+        Addr    = 0;
+        #101;
+        rst_n = 1;
         #100;
-        rst_n=1;
-        Conv_go=1;
-
-        #400;
-        Conv_go=0;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #200;
-         Conv_go=1;
-
-        #400;
-        Conv_go=0;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #80;
-        dout=0;
-        #80;
-        dout=1;
-        #200;
-
+        Conv_go = 1;
+        Addr    = 3;
+        #20;
+        Conv_go = 0;
+        wait(!cs_n);
+        @(negedge sclk);
+        dout=0;//DB15
+        @(negedge sclk);
+        dout=0;//DB14
+        @(negedge sclk);
+        dout=0;//DB13
+        @(negedge sclk);
+        dout=0;//DB12
+        @(negedge sclk);
+        dout=1;//DB11
+        @(negedge sclk);
+        dout=0;//DB10
+        @(negedge sclk);
+        dout=1;//DB9
+        @(negedge sclk);
+        dout=0;//DB8
+        @(negedge sclk);
+        dout=1;//DB7
+        @(negedge sclk);
+        dout=0;//DB6
+        @(negedge sclk);
+        dout=1;//DB5
+        @(negedge sclk);
+        dout=0;//DB4
+        @(negedge sclk);
+        dout=1;//DB3
+        @(negedge sclk);
+        dout=0;//DB2
+        @(negedge sclk);
+        dout=1;//DB1
+        @(negedge sclk);
+        dout=0;//DB0
+        #100;
         $finish;
     end
 
