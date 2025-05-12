@@ -1,3 +1,5 @@
+
+
 #  ADC 驱动设计
 
 ADC:Analog-to-Digital Converter，模/数转换器。通常是指一个将模拟信号转变为数字信号的电子元件。
@@ -22,4 +24,7 @@ ADD0~2 为输入数据选择
 ![管道选择](images/Selection.png)
 
 ## 基于线性序列机的ADC芯片驱动设计
+
+# 仿真波形图
+![wave](images/仿真波形图.png)
 
