@@ -68,10 +68,10 @@ module ADC128S102_Driver (
     //暂存addr值 防止addr不稳定
     always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
-            r_Addr<=0;
+            r_Addr <= 0;
         end
         else begin
-            r_Addr<=Addr;
+            r_Addr <= Addr;
         end
     end
 
@@ -80,7 +80,7 @@ module ADC128S102_Driver (
             sclk      <= 0;
             conv_done <= 0;
             din       <= 0;
-            data      <= 12'd0;
+            r_data    <= 12'd0;
         end
         else if (div_cnt == MCNT_DIV) begin
             case (count)
